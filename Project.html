@@ -1,0 +1,376 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vaccination Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      background: linear-gradient(to bottom, #f4f9fd, #e0f7fa);
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background-color: #004d99;
+      padding: 10px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    nav h1 {
+      font-size: 28px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover {
+      color: #ffcc00;
+    }
+.section 
+{ 
+display: none; 
+}
+.section.active,
+body.view-all .section 
+{
+  display: block;
+}
+
+    .section {
+      padding: 80px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .section h2 {
+      font-size: 36px;
+      color: #002d62;
+      margin-bottom: 30px;
+      border-bottom: 3px solid #0066cc;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+    .section p, .section ul {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .card h3 {
+      text-align: center;
+      color: #004080;
+      margin-bottom: 10px;
+    }
+    .search-bar {
+      width: 100%;
+      max-width: 400px;
+      padding: 12px;
+      margin: 30px auto;
+      display: block;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    footer {
+      background-color: #002d62;
+      color: white;
+      text-align: center;
+      padding: 25px;
+    }
+    footer a {
+      color: #ffcc00;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <h1>MINI HEALTH CARE HELP</h1>
+      <ul>
+         <li><a href="#all" class="nav-link" data-target="all">Home</a></li>
+       <li><a href="#about" class="nav-link" data-target="about">About</a></li>
+      <li><a href="#categories" class="nav-link" data-target="categories">Categories</a></li>
+      <li><a href="#vaccines" class="nav-link" data-target="vaccines">Vaccines</a></li>
+      <li><a href="#history" class="nav-link" data-target="history">History</a></li>
+      <li><a href="#research" class="nav-link" data-target="research">Research</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="about" class="section">
+    <h2>About Vaccination</h2>
+    <P>Vaccination is the process of introducing a weakened or inactive form of a pathogen (like a virus or bacteria) into the body to stimulate an immune response and build protection against a specific disease. This process, also known as immunization, helps the body develop antibodies and immune memory, enabling it to fight off future infections from that pathogen. Vaccines are a safe and effective way to prevent serious and potentially deadly diseases. </P>
+    <p>Vaccines are biological preparations that help protect individuals from infectious diseases by stimulating the immune system to recognize and combat pathogens. They are safe, cost-effective, and vital for global health security.</p>
+    <p>Vaccination prevents 3.5–5 million deaths annually from diseases like diphtheria, tetanus, pertussis, influenza, and measles. Beyond individual protection, it promotes herd immunity, protecting those who cannot be vaccinated.</p>
+  </section>
+
+  <section id="categories" class="section">
+    <h2>Categories of Vaccines</h2>
+    <div class="card-container">
+      <div class="card">
+        <img src="https://picsum.photos/100?1" alt="Live-Attenuated">
+        <h3>Live-Attenuated</h3>
+        <p>Weakened form of the virus. Provides strong immunity. (e.g., MMR)</p>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/100?2" alt="Inactivated">
+        <h3>Inactivated</h3>
+        <p>Dead virus. Safe for most people. (e.g., Hepatitis A)</p>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/100?3" alt="Subunit">
+        <h3>Subunit & Conjugate</h3>
+        <p>Parts of the virus or bacteria. Fewer side effects. (e.g., HPV, Hep B)</p>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/100?4" alt="mRNA">
+        <h3>mRNA</h3>
+        <p>New tech. Triggers immune response via mRNA. (e.g., Pfizer COVID-19)</p>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/100?5" alt="Viral Vector">
+        <h3>Viral Vector</h3>
+        <p>Uses a harmless virus to deliver genetic info. (e.g., AstraZeneca)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="vaccines" class="section">
+    <h2>Vaccines & Medicines</h2>
+  <div style="text-align:center;">
+  <input type="text" id="searchInput" class="search-bar" placeholder="Search for a vaccine...">
+  <input type="text" id="locationInput" class="search-bar" placeholder="Enter your city...">
+  <button onclick="searchData()" style="padding: 10px 20px;">Search</button>
+  </div>
+<div id="searchResults" class="card-container"></div>
+
+    <div class="card-container">
+      <div class="card">
+        <h3>BCG</h3>
+        <p>Protects against tuberculosis (TB).</p>
+      </div>
+      <div class="card">
+        <h3>MMR</h3>
+        <p>Measles, Mumps, Rubella combined vaccine.</p>
+      </div>
+      <div class="card">
+        <h3>HPV</h3>
+        <p>Prevents human papillomavirus and related cancers.</p>
+      </div>
+      <div class="card">
+        <h3>Hepatitis B</h3>
+        <p>Protects against hepatitis B infection and liver disease.</p>
+      </div>
+      <div class="card">
+        <h3>DTP</h3>
+        <p>Combination vaccine against diphtheria, tetanus, pertussis.</p>
+      </div>
+      <div class="card">
+        <h3>COVID-19 Vaccines</h3>
+        <p>Includes Pfizer, Moderna, Covaxin, Covishield.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="history" class="section">
+    <h2>History of Vaccination</h2>
+    <div class="card-container">
+      <div class="card">
+        <h3>1796</h3>
+        <p>Edward Jenner develops smallpox vaccine using cowpox.</p>
+      </div>
+      <div class="card">
+        <h3>1885</h3>
+        <p>Pasteur introduces rabies vaccine.</p>
+      </div>
+      <div class="card">
+        <h3>1955</h3>
+        <p>Salk polio vaccine is licensed.</p>
+      </div>
+      <div class="card">
+        <h3>1980</h3>
+        <p>WHO declares smallpox eradicated worldwide.</p>
+      </div>
+      <div class="card">
+        <h3>2006</h3>
+        <p>HPV vaccine introduced for cervical cancer prevention.</p>
+      </div>
+      <div class="card">
+        <h3>2020</h3>
+        <p>COVID-19 vaccines developed using mRNA and viral vector tech.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="section">
+    <h2>New Researches</h2>
+    <p>Modern vaccination research focuses on improving delivery, increasing immunity, and developing vaccines for complex diseases.</p>
+    <ul>
+      <li>Universal flu vaccine (NIH, Sanofi)</li>
+      <li>mRNA-based cancer vaccines</li>
+      <li>DNA vaccines for infectious diseases</li>
+      <li>Oral and nasal vaccines for needle-free delivery</li>
+      <li>AI-powered antigen prediction</li>
+    </ul>
+    <p>Learn more from official sources:</p>
+    <ul>
+      <li><a href="https://www.who.int/health-topics/vaccines-and-immunization" target="_blank">WHO – Vaccines & Immunization</a></li>
+      <li><a href="https://www.cdc.gov/vaccines/index.html" target="_blank">CDC – Vaccines Homepage</a></li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Vaccination Info | All Rights Reserved</p>
+  </footer>
+  <script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-database.js";
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyAQZCCO1ojJ6aS_EUzjjdXj4JOUSC28Eck",
+  authDomain: "cspproject-4b163.firebaseapp.com",
+  databaseURL: "https://cspproject-4b163-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "cspproject-4b163",
+  storageBucket: "cspproject-4b163.firebasestorage.app",
+  messagingSenderId: "91935139297",
+  appId: "1:91935139297:web:b69877c0fda3fcb3835ea0",
+  measurementId: "G-YKM65B0V2K"
+
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getDatabase(app);
+
+  const allLink = 'all';
+
+  function showSection(id) {
+    document.body.classList.remove('view-all');
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    if (id === allLink) {
+      document.body.classList.add('view-all');
+    } else {
+      const sec = document.getElementById(id);
+      if (sec) sec.classList.add('active');
+    }
+  }
+
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const id = link.dataset.target;
+      history.pushState(null, '', '#' + id);
+      showSection(id);
+    });
+  });
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = location.hash.slice(1);
+    showSection(hash || allLink);
+  });
+
+  window.addEventListener('popstate', () => {
+    const hash = location.hash.slice(1);
+    showSection(hash || allLink);
+  });
+
+ window.searchData = function () {
+  // Get raw input values
+  const rawQuery = document.getElementById('searchInput').value.trim();
+  const rawLocation = document.getElementById('locationInput').value.trim();
+
+  const resultsDiv = document.getElementById('searchResults');
+
+  // Basic input validation
+  if (!rawQuery || !rawLocation) {
+    resultsDiv.innerHTML = `<p>Please enter both medicine name and location.</p>`;
+    return;
+  }
+
+  // Convert input to lowercase for Firebase key access
+  const query = rawQuery.toLowerCase();
+  const location = rawLocation.toLowerCase();
+
+  const dataRef = ref(db);
+
+  get(child(dataRef, `medicines/${query}/${location}`))
+    .then(snapshot => {
+      if (snapshot.exists()) {
+        const data = snapshot.val();
+
+        // Capitalize only for display
+        const displayQuery = rawQuery.toUpperCase() ;
+        const displayLocation = rawLocation.charAt(0).toUpperCase() + rawLocation.slice(1).toLowerCase();
+
+        resultsDiv.innerHTML = `
+          <div class="card">
+            <h3>${displayQuery}</h3>
+            <p>Location: ${displayLocation}</p>
+            <p>Availability: ${data.availability}</p>
+          </div>`;
+      } else {
+        resultsDiv.innerHTML = `<p>No availability found for ${rawQuery} in ${rawLocation}.</p>`;
+      }
+    })
+    .catch(error => {
+      console.error(error);
+      resultsDiv.innerHTML = `<p>Error fetching data.</p>`;
+    });
+};
+
+</script>
+</body>
+</html>

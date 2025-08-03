@@ -1,0 +1,16 @@
+{
+  "medicines": {
+    "bcg": {
+      "delhi": { "availability": "Available" },
+      "mumbai": { "availability": "Out of Stock" }
+    },
+    "mmr": {
+      "delhi": { "availability": "Available" },
+      "chennai": { "availability": "Limited" }
+    },
+    "covaxin": {
+      "hyderabad": { "availability": "Available" },
+      "delhi": { "availability": "Out of Stock" }
+    }
+  }
+}
